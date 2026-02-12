@@ -7,4 +7,19 @@ Tested using:
     mpi4py
 """
 import numpy as np 
+import math 
+
+class Vector:
+	def _init_(self, x, y, z) # initialise vector components
+		self.x = x 
+		self.y = y
+		self.z = z 
+	def _repr_(self):
+		return f"Vector({self.x}, {self.y}, {self.z})
+
+# using the object class 
+#initialise vector with components
+v1 = Vector(1, 2, 3)
+ 
+
 
