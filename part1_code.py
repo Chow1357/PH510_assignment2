@@ -25,6 +25,8 @@ class Vector:
 #initialise vector with components
 v1 = Vector(1, 2, 3) 
 
+print(v1)
+print("Magnitude:", v1.magnitude()) # computes the magnitude of vector v1
 
  
 
