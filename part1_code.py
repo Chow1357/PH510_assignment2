@@ -20,8 +20,8 @@ class Vector:
 	def __add__(self, other):
 		return Vector(self.x + other.x,self.y + other.y, self.z + other.z) # adds two vectors and returns a resulting vector as an instance 
 	
-	def __subtract__(self, other):
-		return Vector(self.x + other.x,self.y + other.y, self.z + other.z)# subtracts two vectors
+	def __sub__(self, other):
+		return Vector(self.x - other.x,self.y - other.y, self.z - other.z)# subtracts two vectors
 	
 	def magnitude(self): 
 		return math.sqrt(self.x**2 + self.y**2 + self.z**2)
