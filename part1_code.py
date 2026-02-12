@@ -16,6 +16,9 @@ class Vector:
 		self.z = z 
 	def _repr_(self):
 		return f"Vector({self.x}, {self.y}, {self.z})
+
+	def __add__(self, other):
+		return Vector(self.x + other.x,
 	
 	def _magnitude_(self): 
 		return math.sqrt(self.x**2 + self.y**2 + self.z**2)
@@ -25,7 +28,7 @@ class Vector:
 #initialise vector with components
 v1 = Vector(1, 2, 3) 
 
-print(v1)
+print(v1) # prints the vector v1 (1, 2, 3) 
 print("Magnitude:", v1.magnitude()) # computes the magnitude of vector v1
 
  
