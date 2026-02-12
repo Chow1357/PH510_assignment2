@@ -16,10 +16,16 @@ class Vector:
 		self.z = z 
 	def _repr_(self):
 		return f"Vector({self.x}, {self.y}, {self.z})
+	
+	def _magnitude_(self): 
+		return math.sqrt(self.x**2 + self.y**2 + self.z**2)
+
 
 # using the object class 
 #initialise vector with components
-v1 = Vector(1, 2, 3)
+v1 = Vector(1, 2, 3) 
+
+
  
 
 
