@@ -4,7 +4,6 @@ code tha
 
 Tested using:
     Python 3.10.9
-    mpi4py
 """
 import numpy as np 
 import math 
@@ -52,6 +51,27 @@ print(v1) # prints the vector v1 (1, 2, 3)
 print("cross product:", v1.cross_product(v2))
 print("scalar product:", v1.scalar_product(v2))
 print("Magnitude:", v1.magnitude()) # computes the magnitude of vector v1
+
+#-----------Task 2--------------------
+#instantiate the vectors for each triangle
+# Triangle 1 
+A1 = (0,0,0) 
+B1 = (1,0,0) 
+C1 = (0,1,0)
+#Triangle 2 
+A2 = (-1,-1,-1)
+B2 = (0,-1,-1)
+C2 = (-1,0,-1) 
+#Triangle 3
+A3 = (1,0,0)
+B3 = (0,0,1)
+C3 = (0,0,0)
+#Triangle 4 
+A4 = (0,0,0)
+B4 = (1,-1,0)
+C4 = (0,0,1)
+
+
 
  
 
