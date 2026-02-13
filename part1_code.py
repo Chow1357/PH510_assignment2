@@ -26,6 +26,9 @@ class Vector:
 	def magnitude(self): 
 		return math.sqrt(self.x**2 + self.y**2 + self.z**2)
 
+	def scalar_product(self, other): 
+		return (self.x*other.x + self.y*other.y + self.z*other.z) 
+
 
 # using the object class 
 #initialise vector with components
@@ -39,6 +42,7 @@ print(v3)
 print(v4)
 print(v3.x, v3.y, v3.z)
 print(v1) # prints the vector v1 (1, 2, 3) 
+print("scalar product:", v1.scalar_product(v2))
 print("Magnitude:", v1.magnitude()) # computes the magnitude of vector v1
 
  
