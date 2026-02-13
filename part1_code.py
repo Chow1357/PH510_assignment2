@@ -47,7 +47,7 @@ v4 = v2 - v1
 
 print(v3)
 print(v4)
-print(v3.x, v3.y, v3.z)
+#print(v3.x, v3.y, v3.z)
 print(v1) # prints the vector v1 (1, 2, 3) 
 print("cross product:", v1.cross_product(v2))
 print("scalar product:", v1.scalar_product(v2))
