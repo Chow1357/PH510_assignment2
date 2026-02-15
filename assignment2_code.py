@@ -68,6 +68,17 @@ A4 = (0,0,0)
 B4 = (1,-1,0)
 C4 = (0,0,1)
 
+#defining the function to find the area of the triangles 
+def triangle_area(A, B, C):
+   AB = B - A 
+   AC = C - A 
+   return 0.5 * AB.cross_product(AC).magnitude()
+
+#print the area of the four seperate triangles 
+print("Trtiangle 1 area:", triangle_area(A1, B1, C1)
+print("Trtiangle 2 area:", triangle_area(A2, B2, C2)
+print("Trtiangle 3 area:", triangle_area(A3, B3, C3)
+print("Trtiangle 4 area:", triangle_area(A4, B4, C4)
 
 
  
