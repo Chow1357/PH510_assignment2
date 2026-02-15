@@ -28,9 +28,6 @@ class Vector:
 	def scalar_product(self, other): 
 		return (self.x*other.x + self.y*other.y + self.z*other.z)
 
-    def cross_product(self, other)
-        return 
-
 	def cross_product(self, other): 
 		return Vector(self.y*other.z - self.z*other.y, self.x*other.z - self.z*other.x,
                 self.x*other.y - self.y*other.x)  
@@ -53,7 +50,7 @@ print("scalar product:", v1.scalar_product(v2))
 print("Magnitude:", v1.magnitude()) # computes the magnitude of vector v1
 
 #-----------Task 2--------------------
-#instantiate the vectors for each triangle
+#instantiate the vectors which represent the cartesian points for each triangle
 # Triangle 1 
 A1 = (0,0,0) 
 B1 = (1,0,0) 
