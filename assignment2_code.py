@@ -29,7 +29,7 @@ class Vector:
 		return (self.x*other.x + self.y*other.y + self.z*other.z)
 
 	def cross_product(self, other): 
-		return Vector(self.y*other.z - self.z*other.y, self.x*other.z - self.z*other.x,
+		return Vector(self.y*other.z - self.z*other.y, self.z*other.x - self.x*other.z,
                 self.x*other.y - self.y*other.x)  
 
 
