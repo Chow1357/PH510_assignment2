@@ -80,6 +80,13 @@ print("Trtiangle 2 area:", triangle_area(A2, B2, C2)
 print("Trtiangle 3 area:", triangle_area(A3, B3, C3)
 print("Trtiangle 4 area:", triangle_area(A4, B4, C4)
 
+#-----part B--------
+#define the function to calculate the internal angles of the triangles
+def angle_between(u, v):
+    dot = u.scalar_product(v)
+    mag_u = u.magnitude()
+    mag_v = v.magnitude()
+    return math.acos( dot / (mag_u * mag_v) )
 
  
 
