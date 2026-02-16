@@ -87,6 +87,7 @@ def angle_between(u, v):
     mag_u = u.magnitude()
     mag_v = v.magnitude()
     return math.acos( dot / (mag_u * mag_v) )
+# function that fidns the edges of the triangle between which the internal angles are 
 def triangle_angles(A, B, C): 
     AB = B-A
     AC = C-A 
