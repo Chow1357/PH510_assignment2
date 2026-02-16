@@ -108,8 +108,8 @@ triangles = [("triangle_1", A1, B1, C2),
     ("triangle_4", A4, B4, B4)]
 # a for loop which goes through the four triangles and prints the internal angles using the edges we have defined
 for name, A, B, C in triangles:
-    angles = trangle_angle(A, B, C)
+    angles = trangle_angles(A, B, C)
     angles_deg = [math.degress(a) for a in angles]
-    print
+    print(f"{name} angles (degrees): {angles_deg}")
 
 
