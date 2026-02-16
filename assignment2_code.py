@@ -52,21 +52,21 @@ print("Magnitude:", v1.magnitude()) # computes the magnitude of vector v1
 #-----------Task 2--------------------
 #instantiate the vectors which represent the cartesian points for each triangle
 # Triangle 1 
-A1 = (0,0,0) 
-B1 = (1,0,0) 
-C1 = (0,1,0)
+A1 = Vector(0,0,0) 
+B1 = Vector(1,0,0) 
+C1 = Vector(0,1,0)
 #Triangle 2 
-A2 = (-1,-1,-1)
-B2 = (0,-1,-1)
-C2 = (-1,0,-1) 
+A2 = Vector(-1,-1,-1)
+B2 = Vector(0,-1,-1)
+C2 = Vector(-1,0,-1) 
 #Triangle 3
-A3 = (1,0,0)
-B3 = (0,0,1)
-C3 = (0,0,0)
+A3 = Vector(1,0,0)
+B3 = Vector(0,0,1)
+C3 = Vector(0,0,0)
 #Triangle 4 
-A4 = (0,0,0)
-B4 = (1,-1,0)
-C4 = (0,0,1)
+A4 = Vector(0,0,0)
+B4 = Vector(1,-1,0)
+C4 = Vector(0,0,1)
 
 #defining the function to find the area of the triangles 
 def triangle_area(A, B, C):
@@ -75,10 +75,10 @@ def triangle_area(A, B, C):
    return 0.5 * AB.cross_product(AC).magnitude()
 
 #print the area of the four seperate triangles 
-print("Trtiangle 1 area:", triangle_area(A1, B1, C1)
-print("Trtiangle 2 area:", triangle_area(A2, B2, C2)
-print("Trtiangle 3 area:", triangle_area(A3, B3, C3)
-print("Trtiangle 4 area:", triangle_area(A4, B4, C4)
+print("Triangle 1 area:", triangle_area(A1, B1, C1)
+print("Triangle 2 area:", triangle_area(A2, B2, C2)
+print("Triangle 3 area:", triangle_area(A3, B3, C3)
+print("Triangle 4 area:", triangle_area(A4, B4, C4)
 
 #-----part B--------
 #define the function to calculate the internal angles of the triangles
@@ -87,7 +87,19 @@ def angle_between(u, v):
     mag_u = u.magnitude()
     mag_v = v.magnitude()
     return math.acos( dot / (mag_u * mag_v) )
+def triangle_angles(A, B, C): 
+    AB = B-A
+    AC = C-A 
 
- 
+    BA = A-B
+    BC = C-B 
+
+    CA = A-C
+    CB = B-C 
+    
+    angle_A = angle_between(AB, AC) 
+    angle_B = angle_between(BA, BC)
+    angle_C = angle_between(CA, CB)
+    return angle_A, angle_B, angle_C
 
 
