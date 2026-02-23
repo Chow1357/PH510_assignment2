@@ -128,7 +128,7 @@ for name, A, B, C in triangles:
     print(f"{name} angles (degrees): {angles_deg}") 
 #----------------Task 3---------------------------------
 # Inheriting from the parent vector class while overriding some methods in the new class
-class ComplexVector(self):
+class ComplexVector(Vector):
 	def __init__(self,x,y,z):
 		self.x = complex(x)
 		self.y = complex(y)
@@ -152,7 +152,7 @@ ey = ComplexVector(0, 1, 0)
 # computing the phase factor at position x, exp(ikx), to compute the vector fields M(x) and N(x) 
 def phase(x):
     k_dot_x = k.scalar_product(x)
-	return cmath.exp(1j *k_dot_x)
+    return cmath.exp(1j *k_dot_x)
 
 #defining the vector fields M and N 
 def M_field(x):
