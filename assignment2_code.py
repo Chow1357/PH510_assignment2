@@ -146,8 +146,8 @@ k = Vector(0, 0, math.pi)
 kMag = k.magnitude()
 
 #defining the vectors M and N prior to multiply by the pre factor exp(ikx) 
-ex = (1, 0, 0) 
-ey = (0, 1, 0) 
+ex = ComplexVector(1, 0, 0) 
+ey = ComplexVector(0, 1, 0) 
 
 # computing the phase factor at position x, exp(ikx), to compute the vector fields M(x) and N(x) 
 def phase(x):
@@ -185,19 +185,27 @@ def check_properties(x):
 
 	# building the RHS for the relations stated in the assignment
 	RHS_curlM = (1.0 / k_mag) * Mx 
-	RHS_curlN = (1.0 / k_mag) * Nx 
+	RHS_curlN = (1.0 / k_mag) * Nx
+
+	# plane wave 
+	RHS_curlM_pw = 1j * kMag * Nx 
+	RHS_curlN_pw = -1j * kMag * Mx
 
 	# mismathch error to verify the left and right hand sides of the relation
 	err_mismatch_curlM = (curlM - RHS_curlM).magnitude()
 	err_mismatch_curlN = (curlN - RHS_curlN).magnitude()
+	err_mismatch_curlM_pw = (curlM - RHS_curlM_pw).magnitude()
+	err_mismatch_curlN_pw = (curlN - RHS_curlN_pw).magnitude()					  
 
 	# printing the test spatial point 
 	print(f"Point x = ({x.x:.3f}, {x.y:.3f}, {x.z:.3f})")
 
 	# printing the curl checks that we defined under the check-properties function 
 	print("Curl checks:")
-	print(f"  |curl M - M/|k||     = {err_mismatch_curlM:.3e}  (brief Eq. 2.7)")
-	print(f"  |curl N - N/|k||     = {err_mismatch_curlN:.3e}  (brief Eq. 2.8)")
+	print(f"  |curl M - N/|k||     = {err_mismatch_curlM:.3e}  (brief Eq. 2.8)")
+	print(f"  |curl N - M/|k||     = {err_mismatch_curlN:.3e}  (brief Eq. 2.7)")
+	print(f"  |curl M - N * |k||   = {err_mismatch_curlM_pw:.3e}  (planewave case)")
+	print(f"  |curl N - M * |k||   = {err_mismatch_curlN_pw:.3e}  (planewave case)")
 
 	# divergence checks 
 	print("Divergence checks:")
