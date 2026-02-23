@@ -134,6 +134,21 @@ class ComplexVector(self):
 		self.y = complex(y)
 		self.z = complex(z)
 #defining the complex magnitude method to overrride the one defined in the parent class which deals with real vectors
-	def magnitude
+	def magnitude(self):
+		return math.sqrt(abs(self.x)**2 + abs(self.y)**2+ abs(self.z)**2)
+    # defining the complex dot profuct where we must find the complex conjugate of the first vector and multiply it by the other
+	def scalar_product(self, other):
+		return (self.x.conjugate()*other.x +
+				self.y.comjugate()*other.y +
+				self.x.conjugate()*other.z) 
+# setting up the hansen vectors
+k = Vector(0, 0, math.pi) 
+kMag = k.magnitude()
+
+#defining the vectors M and N prior to multiply by the pre factor exp(ikx) 
+ex = (1, 0, 0) 
+ey = (0, 1, 0) 
+
+	
 
 
