@@ -10,6 +10,13 @@ import cmath
 import math
 # defining the new parent class called vector
 class Vector:
+    """
+    Represents a 3D cartesian Vector
+
+    which supports addition, subtraction, scalar multiplication,
+    dot product, cross product and magnitude computation.
+    """
+
     def __init__(self, x, y, z): # initialise vector components
         self.x = x
         self.y = y
@@ -36,13 +43,16 @@ class Vector:
     __rmul__ = __mul__
 
     def magnitude(self):
+        """Returns the magnitude of the vector"""
         return math.sqrt(self.x**2 + self.y**2 + self.z**2)
 
     def scalar_product(self, other):
-        return (self.x*other.x + self.y*other.y + self.z*other.z)
+        """finds the scalar product of two vectors"""
+        return self.x*other.x + self.y*other.y + self.z*other.z
 
     def cross_product(self, other):
-        return self.__class__(self.y*other.z - self.z*other.y, 
+        """Finds the cross product of two vectors"""
+        return self.__class__(self.y*other.z - self.z*other.y,
             self.z*other.x - self.x*other.z,
                 self.x*other.y - self.y*other.x)
 
@@ -87,6 +97,7 @@ C4 = Vector(0,0,1)
 
 #defining the function to find the area of the triangles
 def triangle_area(a, b, c):
+    """finds the area of triangle ABC using the cross product"""
     ab = b - a
     ac = c - a
     return 0.5 * ab.cross_product(ac).magnitude()
@@ -100,6 +111,7 @@ print("Triangle 4 area:", triangle_area(A4, B4, C4))
 #-----part B--------
 #define the function to calculate the internal angles of the triangles
 def angle_between(u, v):
+    """finds the angle between two known vectors u and v"""
     dot = u.scalar_product(v)
     mag_u = u.magnitude()
     mag_v = v.magnitude()
@@ -107,6 +119,8 @@ def angle_between(u, v):
 # function that fidns the edges of the triangle between
 # which the internal angles are
 def triangle_angles(a, b, c):
+    """finds the edges that the three angles are between
+       then computes the angle between the edges"""
     # finding the vectors that meet at the vertex or cartesian point A
     ab = b-a
     ac = c-a
@@ -136,17 +150,29 @@ for name, A, B, C in triangles:
 #----------------Task 3---------------------------------
 # Inheriting from the parent vector class while overriding some methods in the new class
 class ComplexVector(Vector):
+    """
+    new vector class for dealing with complex functions
+
+    inherits from the orginal vector class
+    """
     def __init__(self,x,y,z):
-        self.x = complex(x)
-        self.y = complex(y)
-        self.z = complex(z)
+        """initialise complex vector components"""
+        super().__init__(complex(x),
+        complex(y),
+        complex(z))
 #defining the complex magnitude method to overrride the one
 #defined in the parent class which deals with real vectors
     def magnitude(self):
+        """
+        finds the magnitude when dealing with complex vectors
+        """
         return math.sqrt(abs(self.x)**2 + abs(self.y)**2+ abs(self.z)**2)
     # defining the complex dot profuct where we must find the complex
     # conjugate of the first vector and multiply it by the other
     def scalar_product(self, other):
+        """
+        calculates the scalar product when complex vectors are involved
+        """
         return (self.x.conjugate()*other.x +
                 self.y.comjugate()*other.y +
                 self.x.conjugate()*other.z)
@@ -161,31 +187,41 @@ ey = ComplexVector(0, 1, 0)
 # computing the phase factor at position x, exp(ikx),
 # to compute the vector fields M(x) and N(x)
 def phase(x):
+    """ defines the phase factor """
     k_dot_x = k.scalar_product(x)
     return cmath.exp(1j *k_dot_x)
 
 #defining the vector fields M and N
-def M_field(x):
+def m_field(x):
+    """__"""
     return phase(x) * ex
-def N_field(x):
+def n_field(x):
+    """___"""
     return phase(x) * ey
 
 #finding the divergence of the vector fields
 #and showing that they are equivalent to 0
 def divergence_of_a(a,x):
+    """finds the divergence"""
     k_dot_a = (k.x * a.x + k.y * a.y + k.z * a.z)
     return 1j * k_dot_a *phase(x)
 
 # finding the curl
 def curl_of_a(a,x):
+    """computes the curl"""
     k_vec = ComplexVector(k.x, k.y, k.z)
     return 1j * (k_vec.cross_product(a)) * phase(x)
 # Evaluating the vector fields at a selected point in
 # space and comparing the divergence and curl relations
 # evaulating the hansen vectors at point in space
 def check_properties(x):
-    mx = M_field(x)
-    nx = N_field(x)
+    """
+    defines our method of checking that our hansen
+
+    vectors obey the conditions
+    """
+    mx = m_field(x)
+    nx = n_field(x)
 
     # finding the divergence for each vector which should both be zero
     divm = divergence_of_a(ex, x)
