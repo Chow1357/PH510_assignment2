@@ -207,7 +207,13 @@ def check_properties(x):
 # defining a loop which check the properties at different points manuallyt defined
 if __name__ == "__main__":
 	points = [
-		Vector(
+		Vector(0, 0, 0), 
+	Vector(0, 0, 0.5), 
+	Vector(0, 0, 1.0), 
+	Vector(1.2, -0.7, 0.3)]
+
+	for p in points: 
+		check_properties(p)
 	
 	
 	
