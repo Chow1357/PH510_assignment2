@@ -6,19 +6,19 @@ Tested using:
     Python 3.10.9
 """
 #defining the required math functions for regular operations and for handling complex functions
-import cmath 
-import math 
+import cmath
+import math
 # defining the new parent class called vector
 class Vector:
-	def __init__(self, x, y, z): # initialise vector components
-		self.x = x 
-		self.y = y
-		self.z = z 
-	# prints the vector in the form required
-	def __repr__(self):
-		return f"{self.__class__.__name__}({self.x}, {self.y}, {self.z})"
-	# defines the method for adding vectors 
-	def __add__(self, other):
+    def __init__(self, x, y, z): # initialise vector components
+        self.x = x
+        self.y = y
+        self.z = z 
+    # prints the vector in the form required
+    def __repr__(self):
+        return f"{self.__class__.__name__}({self.x}, {self.y}, {self.z})"
+    # defines the method for adding vectors 
+    def __add__(self, other):
 		return self.__class__(self.x + other.x,self.y + other.y, self.z + other.z) # adds two vectors and returns a resulting vector as an instance 
 	#same method for addition but using sub instead
 	def __sub__(self, other):
