@@ -124,7 +124,7 @@ triangles = [("triangle_1", A1, B1, C1),
 # a for loop which goes through the four triangles and prints the internal angles using the edges we have defined
 for name, A, B, C in triangles:
     angles = triangle_angles(A, B, C)
-    angles_deg = [math.degress(a) for a in angles]
+    angles_deg = [math.degrees(a) for a in angles]
     print(f"{name} angles (degrees): {angles_deg}") 
 #----------------Task 3---------------------------------
 # Inheriting from the parent vector class while overriding some methods in the new class
