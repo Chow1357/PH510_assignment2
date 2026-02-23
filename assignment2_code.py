@@ -203,14 +203,14 @@ def n_field(x):
 #and showing that they are equivalent to 0
 def divergence_of_a(a,x):
     """finds the divergence"""
-    k_dot_a = (k.x * a.x + k.y * a.y + k.z * a.z)
+    k_dot_a = k.x * a.x + k.y * a.y + k.z * a.z
     return 1j * k_dot_a *phase(x)
 
 # finding the curl
 def curl_of_a(a,x):
     """computes the curl"""
     k_vec = ComplexVector(k.x, k.y, k.z)
-    return 1j * (k_vec.cross_product(a)) * phase(x)
+    return 1j * k_vec.cross_product(a) * phase(x)
 # Evaluating the vector fields at a selected point in
 # space and comparing the divergence and curl relations
 # evaulating the hansen vectors at point in space
