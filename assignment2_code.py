@@ -20,10 +20,18 @@ class Vector:
 	# defines the method for adding vectors 
 	def __add__(self, other):
 		return self.__class__(self.x + other.x,self.y + other.y, self.z + other.z) # adds two vectors and returns a resulting vector as an instance 
-	
+	#same method for addition but using sub instead
 	def __sub__(self, other):
 		return self.__class__(self.x - other.x,self.y - other.y, self.z - other.z)# subtracts two vectors
-	
+	# defining scalar multiplication 
+	def __mul__(self, a):
+		if isinstance(a, (int, float, complex)):
+			return self.__class__(
+				a * self.x,
+				a * self.y, 
+				a * self.z) 
+		return NotImplemented
+		
 	def magnitude(self): 
 		return math.sqrt(self.x**2 + self.y**2 + self.z**2)
 
