@@ -117,10 +117,10 @@ def triangle_angles(A, B, C):
     angle_C = angle_between(CA, CB)
     return angle_A, angle_B, angle_C
 #storing the triangles  
-triangles = [("triangle_1", A1, B1, C2),
+triangles = [("triangle_1", A1, B1, C1),
     ("triangle_2", A2, B2, C2),
     ("triangle_3", A3, B3, C3),
-    ("triangle_4", A4, B4, B4)]
+    ("triangle_4", A4, B4, C4)]
 # a for loop which goes through the four triangles and prints the internal angles using the edges we have defined
 for name, A, B, C in triangles:
     angles = trangle_angles(A, B, C)
