@@ -31,7 +31,9 @@ class Vector:
 				a * self.y, 
 				a * self.z) 
 		return NotImplemented
-		
+	# ensures that python can do both 2 * v as well as v * 2 
+	__rmul__ = __mul__
+	
 	def magnitude(self): 
 		return math.sqrt(self.x**2 + self.y**2 + self.z**2)
 
@@ -44,10 +46,11 @@ class Vector:
 
 
 # using the object class 
-#initialise vector with components
+#creating the vector objects
 v1 = Vector(1, 2, 3) 
 v2 = Vector(4, 5, 6)
 
+#testing the add and subtract methods inside the parent class and returning two new vector objects v3 and v4 
 v3 = v1 + v2 
 v4 = v2 - v1
 
@@ -98,21 +101,22 @@ def angle_between(u, v):
     mag_v = v.magnitude()
     return math.acos( dot / (mag_u * mag_v) )
 # function that fidns the edges of the triangle between which the internal angles are 
-def triangle_angles(A, B, C): 
+def triangle_angles(A, B, C):
+	# finding the vectors that meet at the vertex or cartesian point A 
     AB = B-A
     AC = C-A 
-
+    # same method for vertex A 
     BA = A-B
     BC = C-B 
 
     CA = A-C
     CB = B-C 
-    
+    # calculating the angle between the defined vectors using the angle between function we defined
     angle_A = angle_between(AB, AC) 
     angle_B = angle_between(BA, BC)
     angle_C = angle_between(CA, CB)
     return angle_A, angle_B, angle_C
-#defining the four triangles with the cartesian vectors I instantiated after the vector class 
+#storing the triangles  
 triangles = [("triangle_1", A1, B1, C2),
     ("triangle_2", A2, B2, C2),
     ("triangle_3", A3, B3, C3),
@@ -121,6 +125,15 @@ triangles = [("triangle_1", A1, B1, C2),
 for name, A, B, C in triangles:
     angles = trangle_angles(A, B, C)
     angles_deg = [math.degress(a) for a in angles]
-    print(f"{name} angles (degrees): {angles_deg}")
+    print(f"{name} angles (degrees): {angles_deg}") 
+#----------------Task 3---------------------------------
+# Inheriting from the parent vector class while overriding some methods in the new class
+class ComplexVector(self):
+	def __init__(self,x,y,z):
+		self.x = complex(x)
+		self.y = complex(y)
+		self.z = complex(z)
+#defining the complex magnitude method to overrride the one defined in the parent class which deals with real vectors
+	def magnitude
 
 
