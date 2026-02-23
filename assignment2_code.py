@@ -184,8 +184,8 @@ def check_properties(x):
 	curlN = curl_of_a(ey, x) 
 
 	# building the RHS for the relations stated in the assignment
-	RHS_curlM = (1.0 / k_mag) * Mx 
-	RHS_curlN = (1.0 / k_mag) * Nx
+	RHS_curlM = (1.0 / kMag) * Mx 
+	RHS_curlN = (1.0 / kMag) * Nx
 
 	# plane wave 
 	RHS_curlM_pw = 1j * kMag * Nx 
