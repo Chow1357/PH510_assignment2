@@ -19,29 +19,29 @@ class Vector:
         return f"{self.__class__.__name__}({self.x}, {self.y}, {self.z})"
     # defines the method for adding vectors 
     def __add__(self, other):
-		return self.__class__(self.x + other.x,self.y + other.y, self.z + other.z) # adds two vectors and returns a resulting vector as an instance 
-	#same method for addition but using sub instead
-	def __sub__(self, other):
-		return self.__class__(self.x - other.x,self.y - other.y, self.z - other.z)# subtracts two vectors
-	# defining scalar multiplication 
-	def __mul__(self, a):
-		if isinstance(a, (int, float, complex)):
-			return self.__class__(
-				a * self.x,
-				a * self.y, 
-				a * self.z) 
-		return NotImplemented
-	# ensures that python can do both 2 * v as well as v * 2 
-	__rmul__ = __mul__
-	
-	def magnitude(self): 
-		return math.sqrt(self.x**2 + self.y**2 + self.z**2)
+        return self.__class__(self.x + other.x,self.y + other.y, self.z + other.z) # adds two vectors and returns a resulting vector as an instance 
+    #same method for addition but using sub instead
+    def __sub__(self, other):
+        return self.__class__(self.x - other.x,self.y - other.y, self.z - other.z)# subtracts two vectors
+    # defining scalar multiplication 
+    def __mul__(self, a):
+        if isinstance(a, (int, float, complex)):
+            return self.__class__(
+                a * self.x,
+                a * self.y, 
+                a * self.z) 
+        return NotImplemented
+    # ensures that python can do both 2 * v as well as v * 2 
+    __rmul__ = __mul__
+    
+    def magnitude(self): 
+        return math.sqrt(self.x**2 + self.y**2 + self.z**2)
 
-	def scalar_product(self, other): 
-		return (self.x*other.x + self.y*other.y + self.z*other.z)
+    def scalar_product(self, other): 
+        return (self.x*other.x + self.y*other.y + self.z*other.z)
 
-	def cross_product(self, other): 
-		return self.__class__(self.y*other.z - self.z*other.y, self.z*other.x - self.x*other.z,
+    def cross_product(self, other): 
+        return self.__class__(self.y*other.z - self.z*other.y, self.z*other.x - self.x*other.z,
                 self.x*other.y - self.y*other.x)  
 
 
@@ -102,7 +102,7 @@ def angle_between(u, v):
     return math.acos( dot / (mag_u * mag_v) )
 # function that fidns the edges of the triangle between which the internal angles are 
 def triangle_angles(A, B, C):
-	# finding the vectors that meet at the vertex or cartesian point A 
+    # finding the vectors that meet at the vertex or cartesian point A 
     AB = B-A
     AC = C-A 
     # same method for vertex A 
@@ -129,18 +129,18 @@ for name, A, B, C in triangles:
 #----------------Task 3---------------------------------
 # Inheriting from the parent vector class while overriding some methods in the new class
 class ComplexVector(Vector):
-	def __init__(self,x,y,z):
-		self.x = complex(x)
-		self.y = complex(y)
-		self.z = complex(z)
+    def __init__(self,x,y,z):
+        self.x = complex(x)
+        self.y = complex(y)
+        self.z = complex(z)
 #defining the complex magnitude method to overrride the one defined in the parent class which deals with real vectors
-	def magnitude(self):
-		return math.sqrt(abs(self.x)**2 + abs(self.y)**2+ abs(self.z)**2)
+    def magnitude(self):
+        return math.sqrt(abs(self.x)**2 + abs(self.y)**2+ abs(self.z)**2)
     # defining the complex dot profuct where we must find the complex conjugate of the first vector and multiply it by the other
-	def scalar_product(self, other):
-		return (self.x.conjugate()*other.x +
-				self.y.comjugate()*other.y +
-				self.x.conjugate()*other.z) 
+    def scalar_product(self, other):
+        return (self.x.conjugate()*other.x +
+                self.y.comjugate()*other.y +
+                self.x.conjugate()*other.z) 
 # setting up the hansen vectors
 k = Vector(0, 0, math.pi) 
 kMag = k.magnitude()
@@ -156,76 +156,76 @@ def phase(x):
 
 #defining the vector fields M and N 
 def M_field(x):
-	return phase(x) * ex 
+    return phase(x) * ex 
 def N_field(x): 
-	return phase(x) * ey 
+    return phase(x) * ey 
 
 #finding the divergence of the vector fields and showing that they are equivalent to 0
 def divergence_of_a(a,x): 
-	k_dot_a = (k.x * a.x + k.y * a.y + k.z * a.z)
-	return 1j * k_dot_a *phase(x) 
+    k_dot_a = (k.x * a.x + k.y * a.y + k.z * a.z)
+    return 1j * k_dot_a *phase(x) 
 
 # finding the curl 
 def curl_of_a(a,x):
-	k_vec = ComplexVector(k.x, k.y, k.z) 
-	return 1j * (k_vec.cross_product(a)) * phase(x)
+    k_vec = ComplexVector(k.x, k.y, k.z) 
+    return 1j * (k_vec.cross_product(a)) * phase(x)
 # Evaluating the vector fields at a selected point in space and comparing the divergence and curl relations
 # evaulating the hansen vectors at point in space
 def check_properties(x):
-	Mx = M_field(x)
-	Nx = N_field(x)
+    Mx = M_field(x)
+    Nx = N_field(x)
 
-	# finding the divergence for each vector which should both be zero 
-	divM = divergence_of_a(ex, x)
-	divN = divergence_of_a(ey, x)
+    # finding the divergence for each vector which should both be zero 
+    divM = divergence_of_a(ex, x)
+    divN = divergence_of_a(ey, x)
 
-	# curls of the teo vector fields 
-	curlM = curl_of_a(ex, x)
-	curlN = curl_of_a(ey, x) 
+    # curls of the teo vector fields 
+    curlM = curl_of_a(ex, x)
+    curlN = curl_of_a(ey, x) 
 
-	# building the RHS for the relations stated in the assignment
-	RHS_curlM = (1.0 / kMag) * Mx 
-	RHS_curlN = (1.0 / kMag) * Nx
+    # building the RHS for the relations stated in the assignment
+    RHS_curlM = (1.0 / kMag) * Mx 
+    RHS_curlN = (1.0 / kMag) * Nx
 
-	# plane wave 
-	RHS_curlM_pw = 1j * kMag * Nx 
-	RHS_curlN_pw = -1j * kMag * Mx
+    # plane wave 
+    RHS_curlM_pw = 1j * kMag * Nx 
+    RHS_curlN_pw = -1j * kMag * Mx
 
-	# mismathch error to verify the left and right hand sides of the relation
-	err_mismatch_curlM = (curlM - RHS_curlM).magnitude()
-	err_mismatch_curlN = (curlN - RHS_curlN).magnitude()
-	err_mismatch_curlM_pw = (curlM - RHS_curlM_pw).magnitude()
-	err_mismatch_curlN_pw = (curlN - RHS_curlN_pw).magnitude()					  
+    # mismathch error to verify the left and right hand sides of the relation
+    err_mismatch_curlM = (curlM - RHS_curlM).magnitude()
+    err_mismatch_curlN = (curlN - RHS_curlN).magnitude()
+    err_mismatch_curlM_pw = (curlM - RHS_curlM_pw).magnitude()
+    err_mismatch_curlN_pw = (curlN - RHS_curlN_pw).magnitude()                    
 
-	# printing the test spatial point 
-	print(f"Point x = ({x.x:.3f}, {x.y:.3f}, {x.z:.3f})")
+    # printing the test spatial point 
+    print(f"Point x = ({x.x:.3f}, {x.y:.3f}, {x.z:.3f})")
 
-	# printing the curl checks that we defined under the check-properties function 
-	print("Curl checks:")
-	print(f"  |curl M - N/|k||     = {err_mismatch_curlM:.3e}  (brief Eq. 2.8)")
-	print(f"  |curl N - M/|k||     = {err_mismatch_curlN:.3e}  (brief Eq. 2.7)")
-	print(f"  |curl M - N * |k||   = {err_mismatch_curlM_pw:.3e}  (planewave case)")
-	print(f"  |curl N - M * |k||   = {err_mismatch_curlN_pw:.3e}  (planewave case)")
+    # printing the curl checks that we defined under the check-properties function 
+    print("Curl checks:")
+    print(f"  |curl M - N/|k||     = {err_mismatch_curlM:.3e}  (brief Eq. 2.8)")
+    print(f"  |curl N - M/|k||     = {err_mismatch_curlN:.3e}  (brief Eq. 2.7)")
+    print(f"  |curl M - N * |k||   = {err_mismatch_curlM_pw:.3e}  (planewave case)")
+    print(f"  |curl N - M * |k||   = {err_mismatch_curlN_pw:.3e}  (planewave case)")
 
-	# divergence checks 
-	print("Divergence checks:")
-	print(f"   |div M| = {abs(divM):.3e}")
-	print(f"   |div N| = {abs(divN):.3e}")
-	print()
+    # divergence checks 
+    print("Divergence checks:")
+    print(f"   |div M| = {abs(divM):.3e}")
+    print(f"   |div N| = {abs(divN):.3e}")
+    print()
 # defining a loop which check the properties at different points manuallyt defined
 if __name__ == "__main__":
-	points = [
-		Vector(0, 0, 0), 
-	Vector(0, 0, 0.5), 
-	Vector(0, 0, 1.0), 
-	Vector(1.2, -0.7, 0.3)]
+    points = [
+        Vector(0, 0, 0), 
+    Vector(0, 0, 0.5), 
+    Vector(0, 0, 1.0), 
+    Vector(1.2, -0.7, 0.3)]
 
-	for p in points: 
-		check_properties(p)
-	
-	
-	
-	
-	
+    for p in points: 
+        check_properties(p)
+    
+    
+    
+    
+    
 
 
