@@ -10,6 +10,7 @@ import cmath
 import math
 # defining the new parent class called vector
 class Vector:
+<<<<<<< HEAD
     def __init__(self, x, y, z): # initialise vector components
         self.x = x
         self.y = y
@@ -19,6 +20,17 @@ class Vector:
         return f"{self.__class__.__name__}({self.x}, {self.y}, {self.z})"
     # defines the method for adding vectors 
     def __add__(self, other):
+=======
+	def __init__(self, x, y, z): # initialise vector components
+		self.x = x
+		self.y = y
+		self.z = z
+	# prints the vector in the form required
+	def __repr__(self):
+		return f"{self.__class__.__name__}({self.x}, {self.y}, {self.z})"
+	# defines the method for adding vectors 
+	def __add__(self, other):
+>>>>>>> 7743877930a6dd6a172ceeea7102ef16e4d6f13f
 		return self.__class__(self.x + other.x,self.y + other.y, self.z + other.z) # adds two vectors and returns a resulting vector as an instance 
 	#same method for addition but using sub instead
 	def __sub__(self, other):
