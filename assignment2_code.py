@@ -83,9 +83,9 @@ C4 = Vector(0,0,1)
 
 #defining the function to find the area of the triangles
 def triangle_area(A, B, C):
-   AB = B - A
-   AC = C - A
-   return 0.5 * AB.cross_product(AC).magnitude()
+    AB = B - A
+    AC = C - A
+    return 0.5 * AB.cross_product(AC).magnitude()
 
 #print the area of the four seperate triangles
 print("Triangle 1 area:", triangle_area(A1, B1, C1))
