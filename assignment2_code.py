@@ -8,20 +8,21 @@ Tested using:
 #defining the required math functions for regular operations and for handling complex functions
 import cmath 
 import math 
-
+# defining the new parent class called vector
 class Vector:
 	def __init__(self, x, y, z): # initialise vector components
 		self.x = x 
 		self.y = y
 		self.z = z 
+	# prints the vector in the form required
 	def __repr__(self):
-		return f"Vector({self.x}, {self.y}, {self.z})"
-
+		return f"{self.__class__.__name__}({self.x}, {self.y}, {self.z})"
+	# defines the method for adding vectors 
 	def __add__(self, other):
-		return Vector(self.x + other.x,self.y + other.y, self.z + other.z) # adds two vectors and returns a resulting vector as an instance 
+		return self.__class__(self.x + other.x,self.y + other.y, self.z + other.z) # adds two vectors and returns a resulting vector as an instance 
 	
 	def __sub__(self, other):
-		return Vector(self.x - other.x,self.y - other.y, self.z - other.z)# subtracts two vectors
+		return self.__class__(self.x - other.x,self.y - other.y, self.z - other.z)# subtracts two vectors
 	
 	def magnitude(self): 
 		return math.sqrt(self.x**2 + self.y**2 + self.z**2)
@@ -30,7 +31,7 @@ class Vector:
 		return (self.x*other.x + self.y*other.y + self.z*other.z)
 
 	def cross_product(self, other): 
-		return Vector(self.y*other.z - self.z*other.y, self.z*other.x - self.x*other.z,
+		return self.__class__(self.y*other.z - self.z*other.y, self.z*other.x - self.x*other.z,
                 self.x*other.y - self.y*other.x)  
 
 
