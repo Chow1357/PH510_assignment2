@@ -180,6 +180,34 @@ def check_properties(x):
 	divN = divergence_of_a(ey, x)
 
 	# curls of the teo vector fields 
+	curlM = curl_of_a(ex, x)
+	curlN = curl_of_a(ey, x) 
+
+	# building the RHS for the relations stated in the assignment
+	RHS_curlM = (1.0 / k_mag) * Mx 
+	RHS_curlN = (1.0 / k_mag) * Nx 
+
+	# mismathch error to verify the left and right hand sides of the relation
+	err_mismatch_curlM = (curlM - RHS_curlM).magnitude()
+	err_mismatch_curlN = (curlN - RHS_curlN).magnitude()
+
+	# printing the test spatial point 
+	print(f"Point x = ({x.x:.3f}, {x.y:.3f}, {x.z:.3f})")
+
+	# printing the curl checks that we defined under the check-properties function 
+	print("Curl checks:")
+	print(f"  |curl M - M/|k||     = {err_mismatch_curlM:.3e}  (brief Eq. 2.7)")
+	print(f"  |curl N - N/|k||     = {err_mismatch_curlN:.3e}  (brief Eq. 2.8)")
+
+	# divergence checks 
+	print("Divergence checks:")
+	print(f"   |div M| = {abs(divM):.3e}")
+	print(f"   |div N| = {abs(divN):.3e}")
+	print()
+# defining a loop which check the properties at different points manuallyt defined
+if __name__ == "__main__":
+	points = [
+		Vector(
 	
 	
 	
