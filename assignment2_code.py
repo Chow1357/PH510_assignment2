@@ -5,7 +5,8 @@ code tha
 Tested using:
     Python 3.10.9
 """
-import numpy as np 
+#defining the required math functions for regular operations and for handling complex functions
+import cmath 
 import math 
 
 class Vector:
