@@ -152,7 +152,7 @@ ey = (0, 1, 0)
 # computing the phase factor at position x, exp(ikx), to compute the vector fields M(x) and N(x) 
 def phase(x):
     k_dot_x = k.scalar_product(x)
-	return cmath.exp(1j *k_fot_x)
+	return cmath.exp(1j *k_dot_x)
 
 #defining the vector fields M and N 
 def M_field(x):
