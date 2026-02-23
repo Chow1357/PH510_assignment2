@@ -88,10 +88,10 @@ def triangle_area(A, B, C):
    return 0.5 * AB.cross_product(AC).magnitude()
 
 #print the area of the four seperate triangles 
-print("Triangle 1 area:", triangle_area(A1, B1, C1)
-print("Triangle 2 area:", triangle_area(A2, B2, C2)
-print("Triangle 3 area:", triangle_area(A3, B3, C3)
-print("Triangle 4 area:", triangle_area(A4, B4, C4)
+print("Triangle 1 area:", triangle_area(A1, B1, C1))
+print("Triangle 2 area:", triangle_area(A2, B2, C2))
+print("Triangle 3 area:", triangle_area(A3, B3, C3))
+print("Triangle 4 area:", triangle_area(A4, B4, C4))
 
 #-----part B--------
 #define the function to calculate the internal angles of the triangles
