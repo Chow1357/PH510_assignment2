@@ -168,7 +168,20 @@ def divergence_of_a(a,x):
 # finding the curl 
 def curl_of_a(a,x):
 	k_vec = ComplexVector(k.x, k.y, k.z) 
-	return 1j * (k_vec.cross_product(a)) * phase(x) 
+	return 1j * (k_vec.cross_product(a)) * phase(x)
+# Evaluating the vector fields at a selected point in space and comparing the divergence and curl relations
+# evaulating the hansen vectors at point in space
+def check_properties(x):
+	Mx = M_field(x)
+	Nx = N_field(x)
+
+	# finding the divergence for each vector which should both be zero 
+	divM = divergence_of_a(ex, x)
+	divN = divergence_of_a(ey, x)
+
+	# curls of the teo vector fields 
+	
+	
 	
 	
 	
