@@ -1,6 +1,6 @@
 #!/opt/software/anaconda/python-3.10.9/bin/python
 """
-code tha
+using Object Oriented Programming (OOP) logic to create classes which can be used for vector calculus
 
 Tested using:
     Python 3.10.9
