@@ -160,6 +160,16 @@ def M_field(x):
 def N_field(x): 
 	return phase(x) * ey 
 
+#finding the divergence of the vector fields and showing that they are equivalent to 0
+def divergence_of_a(a,x): 
+	k_dot_a = (k.x * a.x + k.y * a.y + k.z * a.z)
+	return 1j * k_dot_a *phase(x) 
+
+# finding the curl 
+def curl_of_a(a,x):
+	k_vec = ComplexVector(k.x, k.y, k.z) 
+	return 1j * (k_vec.cross_product(a)) * phase(x) 
+	
 	
 	
 
