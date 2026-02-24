@@ -1,6 +1,7 @@
 #!/opt/software/anaconda/python-3.10.9/bin/python
 """
-using Object Oriented Programming (OOP) logic to create classes which can be used for vector calculus
+using Object Oriented Programming (OOP) logic to create
+classes which can be used for vector calculus
 
 Tested using:
     Python 3.10.9
@@ -24,14 +25,17 @@ class Vector:
     # prints the vector in the form required
     def __repr__(self):
         return f"{self.__class__.__name__}({self.x}, {self.y}, {self.z})"
+
     # defines the method for adding vectors
+    # adds two vectfors and returns a resulting vector as an instance
     def __add__(self, other):
-        return self.__class__(self.x + other.x,self.y + other.y, self.z + other.z) # adds two
-    #vectors and returns a resulting vector as an instance
+        return self.__class__(self.x + other.x,self.y + other.y, self.z + other.z)
+
     #same method for addition but using sub instead
     def __sub__(self, other):
-        return self.__class__(self.x - other.x,self.y - other.y, self.z - other.z)# subtracts
-    # two vectors defining scalar multiplication
+        return self.__class__(self.x - other.x,self.y - other.y, self.z - other.z)
+
+    #defining scalar multiplication
     def __mul__(self, a):
         if isinstance(a, (int, float, complex)):
             return self.__class__(
@@ -42,14 +46,17 @@ class Vector:
     # ensures that python can do both 2 * v as well as v * 2
     __rmul__ = __mul__
 
+    # defining the function to find the magnitude of a real vector
     def magnitude(self):
         """Returns the magnitude of the vector"""
         return math.sqrt(self.x**2 + self.y**2 + self.z**2)
 
+    # function to calculate scalar product
     def scalar_product(self, other):
         """finds the scalar product of two vectors"""
         return self.x*other.x + self.y*other.y + self.z*other.z
 
+    # cross product function
     def cross_product(self, other):
         """Finds the cross product of two vectors"""
         return self.__class__(self.y*other.z - self.z*other.y,
