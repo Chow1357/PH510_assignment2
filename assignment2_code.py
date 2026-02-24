@@ -282,8 +282,8 @@ def check_properties(x):
     print("Curl checks:")
     print(f"  |curl M - N/|k||     = {err_mismatch_curlm:.3e}  (brief Eq. 2.8)")
     print(f"  |curl N - M/|k||     = {err_mismatch_curln:.3e}  (brief Eq. 2.7)")
-    print(f"  |curl M - N * |k||   = {err_mismatch_curlm_pw:.3e}  (planewave case)")
-    print(f"  |curl N + M * |k||   = {err_mismatch_curln_pw:.3e}  (planewave case)")
+    print(f"  |curl M - i|k| * N|   = {err_mismatch_curlm_pw:.3e}  (planewave case)")
+    print(f"  |curl N + i|k| * M|   = {err_mismatch_curln_pw:.3e}  (planewave case)")
 
     # divergence checks
     print("Divergence checks:")
