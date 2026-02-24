@@ -258,8 +258,8 @@ def check_properties(x):
     curln = curl_of_a(ey, x)
 
     # building the RHS for the relations stated in the assignment
-    rhs_curlm = (1.0 / kMag) * mx
-    rhs_curln = (1.0 / kMag) * nx
+    rhs_curlm = (1.0 / kMag) * nx
+    rhs_curln = (1.0 / kMag) * mx
     # plane wave
     rhs_curlm_pw = 1j * kMag * nx
     rhs_curln_pw = -1j * kMag * mx
@@ -278,7 +278,7 @@ def check_properties(x):
     print(f"  |curl M - N/|k||     = {err_mismatch_curlm:.3e}  (brief Eq. 2.8)")
     print(f"  |curl N - M/|k||     = {err_mismatch_curln:.3e}  (brief Eq. 2.7)")
     print(f"  |curl M - N * |k||   = {err_mismatch_curlm_pw:.3e}  (planewave case)")
-    print(f"  |curl N - M * |k||   = {err_mismatch_curln_pw:.3e}  (planewave case)")
+    print(f"  |curl N + M * |k||   = {err_mismatch_curln_pw:.3e}  (planewave case)")
 
     # divergence checks
     print("Divergence checks:")
