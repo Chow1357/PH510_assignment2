@@ -1,7 +1,7 @@
 #!/opt/software/anaconda/python-3.10.9/bin/python
 """
 using Object Oriented Programming (OOP) logic to create
-classes which can be used for vector calculus
+classes which can be used for vector calculations
 
 Tested using:
     Python 3.10.9
@@ -132,7 +132,7 @@ def angle_between(u, v):
     mag_u = u.magnitude()
     mag_v = v.magnitude()
     return math.acos( dot / (mag_u * mag_v) )
-# function that fidns the edges of the triangle between
+# function that finds the edges of the triangle between
 # which the internal angles are
 def triangle_angles(a, b, c):
     """finds the edges that the three angles are between
@@ -140,7 +140,7 @@ def triangle_angles(a, b, c):
     # finding the vectors that meet at the vertex or cartesian point A
     ab = b-a
     ac = c-a
-    # same method for vertex A
+    # same method for vertex B
     ba = a-b
     bc = c-b
 
@@ -157,10 +157,12 @@ triangles = [("triangle_1", A1, B1, C1),
     ("triangle_2", A2, B2, C2),
     ("triangle_3", A3, B3, C3),
     ("triangle_4", A4, B4, C4)]
+
+# title before results for part b
+print_title("Task 2b: printing the internal angles of the four triangles")
+
 # a for loop which goes through the four triangles and prints
 # the internal angles using the edges we have defined
-
-print_title("Task 2b: printing the internal angles of the four triangles")
 for name, A, B, C in triangles:
     angles = triangle_angles(A, B, C)
     angles_deg = [math.degrees(a) for a in angles]
@@ -184,16 +186,16 @@ class ComplexVector(Vector):
         """
         finds the magnitude when dealing with complex vectors
         """
-        return math.sqrt(abs(self.x)**2 + abs(self.y)**2+ abs(self.z)**2)
+        return math.sqrt(abs(self.x)**2 + abs(self.y)**2 + abs(self.z)**2)
     # defining the complex dot profuct where we must find the complex
     # conjugate of the first vector and multiply it by the other
     def scalar_product(self, other):
         """
         calculates the scalar product when complex vectors are involved
         """
-        return (self.x.conjugate()*other.x +
-                self.y.comjugate()*other.y +
-                self.x.conjugate()*other.z)
+        return (self.x.conjugate() * other.x +
+                self.y.conjugate() * other.y +
+                self.z.conjugate() * other.z)
 # setting up the hansen vectors
 k = Vector(0, 0, math.pi)
 kMag = k.magnitude()
@@ -232,6 +234,8 @@ def curl_of_a(a,x):
 # Evaluating the vector fields at a selected point in
 # space and comparing the divergence and curl relations
 # evaulating the hansen vectors at point in space
+# title for task 3 results
+print_title("Task 3: checking hansen vectors obey the conditions for certain test vectors")
 def check_properties(x):
     """
     defines our method of checking that our hansen
