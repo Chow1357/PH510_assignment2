@@ -1,7 +1,15 @@
 #!/opt/software/anaconda/python-3.10.9/bin/python
 """
-using Object Oriented Programming (OOP) logic to create
-classes which can be used for vector calculations
+PH510 Assignment 2 
+Author: Callum Howie 
+Copyright (c) 2026 callum Howie 
+
+This file is part of my PH510 assignment 2 hand in and is licensed under the MIT license
+see the LICENSE file in the repository for full license text 
+
+
+this program uses Object Oriented Programming (OOP) logic to create
+classes which can be used for bot real and complex vector operations
 
 Tested using:
     Python 3.10.9
