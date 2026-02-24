@@ -218,10 +218,14 @@ def phase(x):
 
 #defining the vector fields M and N
 def m_field(x):
-    """__"""
+    """
+    Returns Hansen vector field M(x) = ex * exp(i k·x)
+    """
     return phase(x) * ex
 def n_field(x):
-    """___"""
+    """
+    Returns Hansen vector field N(x) = ey * exp(i k·x)
+    """
     return phase(x) * ey
 
 #Alternative: approximate derivatives with central finite differences from Eq. 2.10
