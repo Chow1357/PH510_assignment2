@@ -233,7 +233,6 @@ def curl_of_a(a,x):
     return 1j * k_vec.cross_product(a) * phase(x)
 # Evaluating the vector fields at a selected point in
 # space and comparing the divergence and curl relations
-# evaulating the hansen vectors at point in space
 # title for task 3 results
 print_title("Task 3: checking hansen vectors obey the conditions for certain test vectors")
 def check_properties(x):
