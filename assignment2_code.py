@@ -74,13 +74,12 @@ v2 = Vector(4, 5, 6)
 v3 = v1 + v2
 v4 = v2 - v1
 
-print(v3)
-print(v4)
 print(v1) # prints the vector v1 (1, 2, 3)
-print("cross product:", v1.cross_product(v2))
-print("scalar product:", v1.scalar_product(v2))
-
-print("Magnitude:", v1.magnitude()) # computes the magnitude of vector v1
+print("sum of v1 and v2:", v3)
+print(" subtracting v1 from v2:", v4)
+print("cross product between v1 and v2:", v1.cross_product(v2))
+print("scalar product between v1 and v2:", v1.scalar_product(v2))
+print("Magnitude of v1:", v1.magnitude()) # computes the magnitude of vector v1
 
 #-----------Task 2--------------------
 #instantiate the vectors which represent the
