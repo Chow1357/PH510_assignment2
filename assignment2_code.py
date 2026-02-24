@@ -14,7 +14,7 @@ import math
 def print_title(title):
     """ prints a title for each task """
     print("\n" + "=" * 50)
-    print(f"{title:^50}") # Center titel
+    print(f"{title:^50}") # Center title
     print("=" * 50)
 
 # defining the new parent class called vector
