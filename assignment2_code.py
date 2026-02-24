@@ -224,8 +224,13 @@ def n_field(x):
     """___"""
     return phase(x) * ey
 
+#an alternative way to approximate the derivation could be to use central finite differences
+#it should be noted that Here the div/curl have been 
+#evaluated analytically because M and n are plane waves:
+#     exp(i k·x) => ∇ exp(i k·x) = i k exp(i k·x)
+#this avoids numerical approximation errors
+
 #finding the divergence of the vector fields
-#and showing that they are equivalent to 0
 def divergence_of_a(a,x):
     """finds the divergence"""
     k_dot_a = k.x * a.x + k.y * a.y + k.z * a.z
