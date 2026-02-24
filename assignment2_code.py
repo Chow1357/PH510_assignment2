@@ -131,6 +131,11 @@ def angle_between(u, v):
     dot = u.scalar_product(v)
     mag_u = u.magnitude()
     mag_v = v.magnitude()
+
+    cos_theta = dot / (mag_u * mag_v)
+    # clamp to avoid floating point errors beyond the range (-1,1)
+    cos_theta = max(1.0, min(-1.0, cos_theta))
+
     return math.acos( dot / (mag_u * mag_v) )
 # function that finds the edges of the triangle between
 # which the internal angles are
