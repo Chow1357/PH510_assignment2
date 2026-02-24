@@ -225,7 +225,7 @@ def n_field(x):
     return phase(x) * ey
 
 #Alternative: approximate derivatives with central finite differences from Eq. 2.10
-#Here in this example we evaluate div/curl analytically 
+#Here in this example we evaluate div/curl analytically
 #since M and N are plane waves, a*exp(i k·x)
 #using the identity; ∇ exp(i k·x) = i k exp(i k·x)
 #we can avoid numerical approximation errors
