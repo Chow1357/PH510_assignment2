@@ -9,6 +9,14 @@ Tested using:
 #defining the required math functions for regular operations and for handling complex functions
 import cmath
 import math
+
+#defining a function to title each section of results
+def print_title(title):
+    """ prints a title for each task """
+    print("\n" + "=" * 50)
+    print(f"{title:^50}") # Center titel
+    print("=" * 50)
+
 # defining the new parent class called vector
 class Vector:
     """
@@ -63,7 +71,7 @@ class Vector:
             self.z*other.x - self.x*other.z,
                 self.x*other.y - self.y*other.x)
 
-
+print_title("Task 1: basic vector operations using a parent class")
 # using the object class
 #creating the vector objects
 v1 = Vector(1, 2, 3)
