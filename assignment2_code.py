@@ -71,6 +71,7 @@ class Vector:
             self.z*other.x - self.x*other.z,
                 self.x*other.y - self.y*other.x)
 
+#title for task 1 results
 print_title("Task 1: basic vector operations using a parent class")
 # using the object class
 #creating the vector objects
@@ -117,6 +118,7 @@ def triangle_area(a, b, c):
     return 0.5 * ab.cross_product(ac).magnitude()
 
 #print the area of the four seperate triangles
+print_title("Task 2a: areas of the four triangles")
 print("Triangle 1 area:", triangle_area(A1, B1, C1))
 print("Triangle 2 area:", triangle_area(A2, B2, C2))
 print("Triangle 3 area:", triangle_area(A3, B3, C3))
@@ -157,6 +159,8 @@ triangles = [("triangle_1", A1, B1, C1),
     ("triangle_4", A4, B4, C4)]
 # a for loop which goes through the four triangles and prints
 # the internal angles using the edges we have defined
+
+print_title("Task 2b: printing the internal angles of the four triangles")
 for name, A, B, C in triangles:
     angles = triangle_angles(A, B, C)
     angles_deg = [math.degrees(a) for a in angles]
