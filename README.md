@@ -6,3 +6,5 @@ three tasks were completed using this code and the tasks varied from the creatio
 Then using the objects in this vector class to find internal angles and the areas of triangles in task 2. 
 The final task, focussed on vectors with complex variables and creating a new class that inherited from the parent vector class while overriding certain functions that needed changing for complex vectors.
 Conditions of Hansen vectors given in the assignment handout were checked. 
+
+numerical reuslts for the three tasks can be found when the program is run in the version of python shown in this file and at the top of the program itself. 
