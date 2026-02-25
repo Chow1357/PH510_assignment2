@@ -9,7 +9,7 @@ see the LICENSE file in the repository for full license text
 
 
 this program uses Object Oriented Programming (OOP) logic to create
-classes which can be used for bot real and complex vector operations
+classes which can be used for both real and complex vector operations
 
 Tested using:
     Python 3.10.9
